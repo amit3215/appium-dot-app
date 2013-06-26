@@ -73,6 +73,9 @@
 
 - (IBAction) launchButtonClicked:(id)sender
 {
+    NSString* script = [NSString stringWithFormat: @"killall node"];
+    system([script UTF8String]);
+    
     if ([self.model startServer])
     {
         [self performSelectorInBackground:@selector(errorLoop) withObject:nil];
